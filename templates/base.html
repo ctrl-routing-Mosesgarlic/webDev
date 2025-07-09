@@ -1,0 +1,95 @@
+<! DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Warehouse & Stock Management System</title>
+        <link rel="stylesheet" href="/static/css/style.css">
+        <script src="/static/js/auth.js"></script>
+        {% block head %}{% endblock %}
+        <!-- No JavaScript -->
+    </head>
+
+    <body>
+        <header class="site-header">
+            <nav class="navbar container">
+                <div class="logo">
+                    <span class="logo-icon"></span>
+                    W&SM System
+                </div>
+                
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="nav-toggle-label">
+                    <span></span>
+                </label>
+                
+                <div class="nav-container">
+                    <ul class="nav-links primary-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Getting Started</a></li>
+                        <li><a href="#">Our Services</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="../view_users.php">View Users</a></li>
+                    </ul>
+                    
+                    <ul class="nav-links auth-links">
+                        <li><a href="auth/sign-in.html" class="btn-link">Sign In</a></li>
+                        <li><a href="auth/sign-up.html" class="btn-primary">Sign Up</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-content container">
+                <div class="footer-grid grid grid-4">
+                    <div class="footer-section">
+                        <h3>About Us</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Our Story</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Services</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Warehouse Management</a></li>
+                            <li><a href="#">Inventory Control</a></li>
+                            <li><a href="#">Stock Tracking</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Resources</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Documentation</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">Support</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Connect</h3>
+                        <ul class="footer-links social-links">
+                            <li><a href="#" class="social-link">Twitter</a></li>
+                            <li><a href="#" class="social-link">LinkedIn</a></li>
+                            <li><a href="#" class="social-link">GitHub</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Warehouse & Stock Management System. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

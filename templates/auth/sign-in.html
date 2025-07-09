@@ -1,0 +1,79 @@
+{% extends "../base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/auth.css">
+{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <h2>Sign In to W&SM System</h2>
+    
+    {% if session.error %}
+    <div class="alert alert-error">
+        {{ session.error }}
+        {% set _ = session.pop('error', None) %}
+    </div>
+    {% endif %}
+    
+    {% if session.success %}
+    <div class="alert alert-success">
+        {{ session.success }}
+        {% set _ = session.pop('success', None) %}
+    </div>
+    {% endif %}
+    
+    <form class="auth-form" action="../../process_login.php" method="POST">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <div class="password-field">
+                <input type="password" id="password" name="password" required>
+                <span class="password-visible-indicator">Password visible</span>
+            </div>
+            <div class="password-toggle">
+                <input type="checkbox" id="show-password" class="toggle-checkbox">
+                <label for="show-password" class="toggle-label">Show password</label>
+            </div>
+        </div>
+        
+        <div class="form-group remember">
+            <label><input type="checkbox" name="remember"> Remember me</label>
+            <a href="forgot-password.html">Forgot password?</a>
+        </div>
+        
+        <button type="submit" class="btn">Sign In</button>
+    </form>
+    
+    <div class="social-login">
+        <p>Or sign in with:</p>
+        <div class="social-buttons">
+            <button class="social-btn google">Google</button>
+            <button class="social-btn apple">Apple</button>
+            <button class="social-btn microsoft">Microsoft</button>
+        </div>
+    </div>
+    
+    <div class="auth-footer">
+        <p>Don't have an account? <a href="sign-up.html">Sign Up</a></p>
+    </div>
+</div>
+<script>
+    // Toggle password visibility
+    document.getElementById('show-password').addEventListener('change', function() {
+        var passwordField = document.getElementById('password');
+        var indicator = document.querySelector('.password-visible-indicator');
+        
+        if (this.checked) {
+            passwordField.type = 'text';
+            indicator.style.display = 'block';
+        } else {
+            passwordField.type = 'password';
+            indicator.style.display = 'none';
+        }
+    });
+</script>
+{% endblock %}

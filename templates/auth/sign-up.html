@@ -1,0 +1,68 @@
+{% extends "../base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/auth.css">
+{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <h2>Register for W&SM System</h2>
+    
+    {% if session.error %}
+    <div class="alert alert-error">
+        {{ session.error }}
+        {% set _ = session.pop('error', None) %}
+    </div>
+    {% endif %}
+    
+    {% if session.success %}
+    <div class="alert alert-success">
+        {{ session.success }}
+        {% set _ = session.pop('success', None) %}
+    </div>
+    {% endif %}
+    <form class="auth-form" action="../../process_register.php" method="POST">
+        <div class="form-group">
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="fullname" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <div class="password-field">
+                <input type="password" id="password" name="password" required>
+                <span class="password-visible-indicator">Password visible</span>
+            </div>
+            <div class="password-toggle">
+                <input type="checkbox" id="show-password-signup" class="toggle-checkbox">
+                <label for="show-password-signup" class="toggle-label">Show password</label>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>Gender:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="gender" value="male"> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+                <label><input type="radio" name="gender" value="other"> Other</label>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="role">User Role:</label>
+            <?php include_once '../../list_dropdown.php'; echo generateRoleDropdown(); ?>
+        </div>
+        
+        <button type="submit" class="btn">Register</button>
+    </form>
+    
+    <div class="auth-footer">
+        <p>Already have an account? <a href="sign-in.html">Sign In</a></p>
+    </div>
+</div>
+{% endblock %}
