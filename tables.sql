@@ -13,10 +13,18 @@ CREATE TABLE products(
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE stock_transaction(
+ CREATE TABLE stock_transaction(
     id INT PRIMARY KEY AUTO_INCREMENT,
     product_id INT NOT NULL,
     type ENUM('in', 'out') NOT NULL,
     quantity INT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE deliveries (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  supplier_id INT NOT NULL,
+  item VARCHAR(255) NOT NULL,
+  quantity INT NOT NULL,
+  delivered_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (supplier_id) REFERENCES users(id)
 );

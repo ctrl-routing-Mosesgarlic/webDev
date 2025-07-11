@@ -16,14 +16,7 @@ CREATE TABLE IF NOT EXISTS users (
     last_login DATETIME NULL,
     status TINYINT(1) DEFAULT 1 COMMENT '1=active, 0=inactive'
 );
-CREATE TABLE deliveries (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  supplier_id INT NOT NULL,
-  item VARCHAR(255) NOT NULL,
-  quantity INT NOT NULL,
-  delivered_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (supplier_id) REFERENCES users(id)
-);
+
 
 
 -- Add index for faster searches
