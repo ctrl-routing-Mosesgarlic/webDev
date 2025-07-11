@@ -66,10 +66,10 @@
     document.getElementById('show-password').addEventListener('change', function() {
         var passwordField = document.getElementById('password');
         var indicator = document.querySelector('.password-visible-indicator');
-        
+
         if (this.checked) {
             passwordField.type = 'text';
-            indicator.style.display = 'block';
+            indicator.style.display = 'inline';
         } else {
             passwordField.type = 'password';
             indicator.style.display = 'none';
