@@ -17,6 +17,8 @@ CREATE TABLE IF NOT EXISTS users (
     status TINYINT(1) DEFAULT 1 COMMENT '1=active, 0=inactive'
 );
 
+
+
 -- Add index for faster searches
 CREATE INDEX idx_email ON users(email);
 CREATE INDEX idx_role ON users(role);
