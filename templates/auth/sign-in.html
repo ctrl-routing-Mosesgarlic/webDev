@@ -1,26 +1,18 @@
-{% extends "../base.html" %}
 
-{% block head %}
 <link rel="stylesheet" href="/static/css/auth.css">
-{% endblock %}
 
-{% block content %}
 <div class="auth-container">
     <h2>Sign In to W&SM System</h2>
     
-    {% if session.error %}
+   
     <div class="alert alert-error">
-        {{ session.error }}
-        {% set _ = session.pop('error', None) %}
+   
     </div>
-    {% endif %}
+  
     
-    {% if session.success %}
+
     <div class="alert alert-success">
-        {{ session.success }}
-        {% set _ = session.pop('success', None) %}
-    </div>
-    {% endif %}
+      
     
     <form class="auth-form" action="../../process_login.php" method="POST">
         <div class="form-group">
@@ -76,4 +68,3 @@
         }
     });
 </script>
-{% endblock %}
