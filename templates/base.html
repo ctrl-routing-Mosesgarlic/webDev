@@ -43,7 +43,28 @@
         </header>
 
         <main>
-            {% block content %}{% endblock %}
+            <section class="dashboard-overview container">
+    <h2 class="section-title">Warehouse Overview</h2>
+    <div class="overview-cards grid grid-4">
+        <div class="card">
+            <h3>Total Products</h3>
+            <p class="stat">1,245</p>
+        </div>
+        <div class="card">
+            <h3>Stock Alerts</h3>
+            <p class="stat alert">7</p>
+        </div>
+        <div class="card">
+            <h3>Pending Orders</h3>
+            <p class="stat">32</p>
+        </div>
+        <div class="card">
+            <h3>Suppliers</h3>
+            <p class="stat">18</p>
+        </div>
+    </div>
+</section>
+
         </main>
 
         <footer class="site-footer">
