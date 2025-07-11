@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block main %}
+<?php
+// Database connection
+require_once '../../connection.php';
+
+// Get category products
+$category = 'furniture';
+$stmt = $conn->prepare("SELECT * FROM products WHERE category = ?");
+$stmt->bind_param("s", $category);
+$stmt->execute();
+$result = $stmt->get_result();
+?>
+
+<section class="category-page container">
+    <div class="category-header">
+        <h1>Furniture Products</h1>
+        <p>Browse our selection of high-quality furniture</p>
+    </div>
+    
+    <div class="products-grid">
+        <?php while($row = $result->fetch_assoc()): ?>
+        <div class="product-card">
+            <div class="product-img-container">
+                <img src="<?= htmlspecialchars($row['image_path']) ?>" alt="<?= htmlspecialchars($row['name']) ?>" class="product-img">
+            </div>
+            <div class="product-details">
+                <h3 class="product-title"><?= htmlspecialchars($row['name']) ?></h3>
+                <p class="product-price">$<?= htmlspecialchars($row['price']) ?></p>
+                <p class="product-stock">In Stock (<?= htmlspecialchars($row['stock_quantity']) ?>)</p>
+                <div class="product-actions">
+                    <button class="btn-add-cart">Add to Cart</button>
+                    <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+        <?php endwhile; ?>
+        <?php if($result->num_rows === 0): ?>
+        <div class="no-products">
+            <p>No furniture products found.</p>
+        </div>
+        <?php endif; ?>
+    </div>
+</section>
+
+<?php
+$stmt->close();
+$conn->close();
+?>
+{% endblock %}

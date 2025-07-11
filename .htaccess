@@ -1,0 +1,14 @@
+DirectoryIndex index.html index.php
+
+# Enable URL rewriting
+RewriteEngine On
+
+# Set the base for rewrites
+RewriteBase /
+
+# Don't apply rules to existing files or directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirect all other requests to index.html
+RewriteRule ^(.*)$ index.html [L]

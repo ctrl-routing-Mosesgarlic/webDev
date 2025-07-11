@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block main %}
+<!-- Hero Section with Search -->
+<section class="hero-section">
+    <div class="container">
+        <h1 class="hero-title">Find All Your Warehouse Products</h1>
+        <p class="hero-subtitle">Browse our extensive catalog of quality products</p>
+        
+        <div class="search-box">
+            <form class="search-form" action="/search.php" method="get">
+                <input type="search" name="search" placeholder="Search for products, categories, brands..." required>
+                <button type="submit" class="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Categories -->
+<section class="featured-categories">
+    <div class="container">
+        <h2 class="section-title">Featured Categories</h2>
+        <div class="categories-grid">
+            <div class="category-card" data-category="electronics">
+                <div class="category-icon">
+                    <i class="fas fa-microchip fa-3x"></i>
+                </div>
+                <h3>Electronics</h3>
+                <a href="/templates/categories/electronics.html" class="category-link">Browse Products</a>
+            </div>
+            
+            <div class="category-card" data-category="furniture">
+                <div class="category-icon">
+                    <i class="fas fa-couch fa-3x"></i>
+                </div>
+                <h3>Furniture</h3>
+                <a href="/templates/categories/furniture.html" class="category-link">Browse Products</a>
+            </div>
+            
+            <div class="category-card" data-category="clothing">
+                <div class="category-icon">
+                    <i class="fas fa-tshirt fa-3x"></i>
+                </div>
+                <h3>Clothing</h3>
+                <a href="/templates/categories/clothing.html" class="category-link">Browse Products</a>
+            </div>
+            
+            <div class="category-card" data-category="kitchen">
+                <div class="category-icon">
+                    <i class="fas fa-utensils fa-3x"></i>
+                </div>
+                <h3>Kitchen</h3>
+                <a href="/templates/categories/kitchen.html" class="category-link">Browse Products</a>
+            </div>
+            
+            <div class="category-card" data-category="tools">
+                <div class="category-icon">
+                    <i class="fas fa-tools fa-3x"></i>
+                </div>
+                <h3>Tools</h3>
+                <a href="/templates/categories/tools.html" class="category-link">Browse Products</a>
+            </div>
+            
+            <div class="category-card" data-category="health">
+                <div class="category-icon">
+                    <i class="fas fa-heartbeat fa-3x"></i>
+                </div>
+                <h3>Health</h3>
+                <a href="/templates/categories/health.html" class="category-link">Browse Products</a>
+            </div>
+
+            <div class="category-card" data-category="sports">
+                <div class="category-icon">
+                    <i class="fas fa-basketball-ball fa-3x"></i>
+                </div>
+                <h3>Sports</h3>
+                <a href="/templates/categories/sports.html" class="category-link">Browse Products</a>
+            </div>
+
+            <div class="category-card" data-category="books">
+                <div class="category-icon">
+                    <i class="fas fa-book fa-3x"></i>
+                </div>
+                <h3>Books</h3>
+                <a href="/templates/categories/books.html" class="category-link">Browse Products</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block head_extra %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/static/css/index.css">
+{% endblock %}

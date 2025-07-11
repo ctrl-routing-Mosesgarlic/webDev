@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Sports - W&SM System{% endblock %}
+
+{% block content %}
+<section class="category-page">
+    <div class="container">
+        <h1 class="category-title">Sports Equipment</h1>
+        <div class="category-description">
+            <p>Browse our extensive collection of high-quality sports equipment and accessories.</p>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/static/images/products/sports/basketball.png" alt="Basketball">
+                </div>
+                <h3>Professional Basketball</h3>
+                <p class="product-description">Official size and weight competition basketball</p>
+                <span class="stock-status in-stock">In Stock</span>
+                <a href="#" class="btn-primary">View Details</a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/static/images/products/sports/tennis.png" alt="Tennis Racket">
+                </div>
+                <h3>Tennis Racket Pro</h3>
+                <p class="product-description">Professional grade tennis racket</p>
+                <span class="stock-status in-stock">In Stock</span>
+                <a href="#" class="btn-primary">View Details</a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/static/images/products/sports/football.png" alt="Football">
+                </div>
+                <h3>Competition Football</h3>
+                <p class="product-description">Match-quality football</p>
+                <span class="stock-status low-stock">Low Stock</span>
+                <a href="#" class="btn-primary">View Details</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block head_extra %}
+<link rel="stylesheet" href="/static/css/category.css">
+{% endblock %}

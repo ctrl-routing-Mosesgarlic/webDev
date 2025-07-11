@@ -1,0 +1,66 @@
+/* Get Started Page Styles */
+.getting-started.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.getting-started h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    color: #2c3e50;
+}
+
+.guide-steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.step {
+    flex: 1 1 300px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform .3s ease;
+    text-align: center;
+}
+
+.step:hover {
+    transform: translateY(-6px);
+}
+
+.step h2 {
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+    color: #34495e;
+}
+
+.step p {
+    color: #7f8c8d;
+    margin-bottom: 1rem;
+}
+
+.step .btn {
+    margin-top: .5rem;
+}
+
+.welcome-message {
+    text-align: center;
+    background-color: #eafaf1;
+    padding: 1rem 1.5rem;
+    border: 1px solid #2ecc71;
+    border-radius: 6px;
+    margin-bottom: 2rem;
+    color: #2c662d;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .guide-steps {
+        flex-direction: column;
+    }
+}

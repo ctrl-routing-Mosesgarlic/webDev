@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Books - W&SM System{% endblock %}
+
+{% block content %}
+<section class="category-page">
+    <div class="container">
+        <h1 class="category-title">Books & Publications</h1>
+        <div class="category-description">
+            <p>Discover our vast collection of books across all genres and categories.</p>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/static/images/products/books/fiction.png" alt="Fiction Books">
+                </div>
+                <h3>Fiction Collection</h3>
+                <p class="product-description">Bestselling fiction titles</p>
+                <span class="stock-status in-stock">In Stock</span>
+                <a href="#" class="btn-primary">View Details</a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/static/images/products/books/textbooks.png" alt="Textbooks">
+                </div>
+                <h3>Academic Textbooks</h3>
+                <p class="product-description">University level textbooks</p>
+                <span class="stock-status in-stock">In Stock</span>
+                <a href="#" class="btn-primary">View Details</a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/static/images/products/books/magazines.png" alt="Magazines">
+                </div>
+                <h3>Magazine Collection</h3>
+                <p class="product-description">Latest magazine issues</p>
+                <span class="stock-status low-stock">Low Stock</span>
+                <a href="#" class="btn-primary">View Details</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block head_extra %}
+<link rel="stylesheet" href="/static/css/category.css">
+{% endblock %}
