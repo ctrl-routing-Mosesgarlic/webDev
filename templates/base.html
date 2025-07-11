@@ -1,200 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Warehouse & Stock Management System</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warehouse & Stock Management System</title>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="/static/css/style.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="/static/css/style.css" />
 
-    {% block head_extra %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/static/css/search.css">
-    <link rel="stylesheet" href="/static/css/index.css">
+  {% block head_extra %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/search.css">
+  <link rel="stylesheet" href="/static/css/index.css">
+  {% endblock %}
+
+  <!-- Scripts -->
+  <script src="/static/js/auth.js" defer></script>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <div class="nav-left">
+        <div class="logo">
+          <a href="/templates/index.html" class="logo-link">
+            <img src="/static/images/logo.png" alt="Warehouse System Logo" class="logo-image" />
+            <span>W&SM System</span>
+          </a>
+        </div>
+      </div>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+
+      <div class="nav-container">
+        <ul class="nav-links primary-links">
+          <li><a href="/templates/index.html">Home</a></li>
+          <li><a href="/templates/getting-started.html">Getting Started</a></li>
+          <li><a href="/templates/services.html">Our Services</a></li>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="view_users.php">View Users</a></li>
+        </ul>
+
+        <ul class="nav-links auth-links">
+          <li><a href="auth/sign-in.html" class="btn-link">Sign In</a></li>
+          <li><a href="auth/sign-up.html" class="btn-primary">Sign Up</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    {% block main %}
+    <!-- Hero Section with Search -->
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title">Find All Your Warehouse Products</h1>
+        <p class="hero-subtitle">Browse our extensive catalog of quality products</p>
+        
+        <div class="search-box">
+          <form class="search-form" action="/search.php" method="get">
+            <input type="search" name="search" placeholder="Search for products, categories, brands..." required>
+            <button type="submit" class="search-button">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="featured-categories">
+      <div class="container">
+        <h2 class="section-title">Featured Categories</h2>
+        <div class="categories-grid">
+          <div class="category-card" data-category="electronics">
+            <div class="category-icon">
+              <i class="fas fa-microchip fa-3x"></i>
+            </div>
+            <h3>Electronics</h3>
+            <a href="/templates/categories/electronics.html" class="category-link">Browse Products</a>
+          </div>
+          
+          <div class="category-card" data-category="furniture">
+            <div class="category-icon">
+              <i class="fas fa-couch fa-3x"></i>
+            </div>
+            <h3>Furniture</h3>
+            <a href="/templates/categories/furniture.html" class="category-link">Browse Products</a>
+          </div>
+          
+          <div class="category-card" data-category="clothing">
+            <div class="category-icon">
+              <i class="fas fa-tshirt fa-3x"></i>
+            </div>
+            <h3>Clothing</h3>
+            <a href="/templates/categories/clothing.html" class="category-link">Browse Products</a>
+          </div>
+          
+          <div class="category-card" data-category="kitchen">
+            <div class="category-icon">
+              <i class="fas fa-utensils fa-3x"></i>
+            </div>
+            <h3>Kitchen</h3>
+            <a href="/templates/categories/kitchen.html" class="category-link">Browse Products</a>
+          </div>
+          
+          <div class="category-card" data-category="tools">
+            <div class="category-icon">
+              <i class="fas fa-tools fa-3x"></i>
+            </div>
+            <h3>Tools</h3>
+            <a href="/templates/categories/tools.html" class="category-link">Browse Products</a>
+          </div>
+          
+          <div class="category-card" data-category="health">
+            <div class="category-icon">
+              <i class="fas fa-heartbeat fa-3x"></i>
+            </div>
+            <h3>Health</h3>
+            <a href="/templates/categories/health.html" class="category-link">Browse Products</a>
+          </div>
+
+          <div class="category-card" data-category="sports">
+            <div class="category-icon">
+              <i class="fas fa-basketball-ball fa-3x"></i>
+            </div>
+            <h3>Sports</h3>
+            <a href="/templates/categories/sports.html" class="category-link">Browse Products</a>
+          </div>
+
+          <div class="category-card" data-category="books">
+            <div class="category-icon">
+              <i class="fas fa-book fa-3x"></i>
+            </div>
+            <h3>Books</h3>
+            <a href="/templates/categories/books.html" class="category-link">Browse Products</a>
+          </div>
+        </div>
+      </div>
+    </section>
     {% endblock %}
 
-    <!-- Scripts -->
-    <script src="/static/js/auth.js" defer></script>
-    </head>
+    <?php if(isset($content)): echo $content; endif; ?>
+  </main>
 
-    <body>
-        <!-- Header -->
-        <header class="site-header">
-            <nav class="navbar container">
-                <div class="nav-left">
-                    <div class="logo">
-                        <a href="/templates/index.html" class="logo-link">
-                            <img src="/static/images/logo.png" alt="Warehouse System Logo" class="logo-image" />
-                            <span>W&SM System</span>
-                        </a>
-                    </div>
-            </div>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content container">
+      <div class="footer-grid grid grid-4">
 
-            <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-            <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
-
-            <div class="nav-container">
-                <ul class="nav-links primary-links">
-                    <li><a href="/templates/index.html">Home</a></li>
-                    <li><a href="/templates/getting-started.html">Getting Started</a></li>
-                    <li><a href="/templates/services.html">Our Services</a></li>
-                    <li><a href="#">Documentation</a></li>
-                    <li><a href="#">Support</a></li>
-                    <li><a href="view_users.php">View Users</a></li>
-                </ul>
-
-                <ul class="nav-links auth-links">
-                    <li><a href="auth/sign-in.html" class="btn-link">Sign In</a></li>
-                    <li><a href="auth/sign-up.html" class="btn-primary">Sign Up</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Main Content -->
-    <main>
-        {% block main %}
-        <!-- Hero Section with Search -->
-        <section class="hero-section">
-            <div class="container">
-                <h1 class="hero-title">Find All Your Warehouse Products</h1>
-                <p class="hero-subtitle">Browse our extensive catalog of quality products</p>
-                
-                <div class="search-box">
-                    <form class="search-form" action="/search.php" method="get">
-                        <input type="search" name="search" placeholder="Search for products, categories, brands..." required>
-                        <button type="submit" class="search-button">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Featured Categories -->
-        <section class="featured-categories">
-            <div class="container">
-                <h2 class="section-title">Featured Categories</h2>
-                <div class="categories-grid">
-                    <div class="category-card" data-category="electronics">
-                        <div class="category-icon">
-                            <i class="fas fa-microchip fa-3x"></i>
-                        </div>
-                        <h3>Electronics</h3>
-                        <a href="/templates/categories/electronics.html" class="category-link">Browse Products</a>
-                    </div>
-                    
-                    <div class="category-card" data-category="furniture">
-                        <div class="category-icon">
-                            <i class="fas fa-couch fa-3x"></i>
-                        </div>
-                        <h3>Furniture</h3>
-                        <a href="/templates/categories/furniture.html" class="category-link">Browse Products</a>
-                    </div>
-                    
-                    <div class="category-card" data-category="clothing">
-                        <div class="category-icon">
-                            <i class="fas fa-tshirt fa-3x"></i>
-                        </div>
-                        <h3>Clothing</h3>
-                        <a href="/templates/categories/clothing.html" class="category-link">Browse Products</a>
-                    </div>
-                    
-                    <div class="category-card" data-category="kitchen">
-                        <div class="category-icon">
-                            <i class="fas fa-utensils fa-3x"></i>
-                        </div>
-                        <h3>Kitchen</h3>
-                        <a href="/templates/categories/kitchen.html" class="category-link">Browse Products</a>
-                    </div>
-                    
-                    <div class="category-card" data-category="tools">
-                        <div class="category-icon">
-                            <i class="fas fa-tools fa-3x"></i>
-                        </div>
-                        <h3>Tools</h3>
-                        <a href="/templates/categories/tools.html" class="category-link">Browse Products</a>
-                    </div>
-                    
-                    <div class="category-card" data-category="health">
-                        <div class="category-icon">
-                            <i class="fas fa-heartbeat fa-3x"></i>
-                        </div>
-                        <h3>Health</h3>
-                        <a href="/templates/categories/health.html" class="category-link">Browse Products</a>
-                    </div>
-
-                    <div class="category-card" data-category="sports">
-                        <div class="category-icon">
-                            <i class="fas fa-basketball-ball fa-3x"></i>
-                        </div>
-                        <h3>Sports</h3>
-                        <a href="/templates/categories/sports.html" class="category-link">Browse Products</a>
-                    </div>
-
-                    <div class="category-card" data-category="books">
-                        <div class="category-icon">
-                            <i class="fas fa-book fa-3x"></i>
-                        </div>
-                        <h3>Books</h3>
-                        <a href="/templates/categories/books.html" class="category-link">Browse Products</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        {% endblock %}
-
-
-        <?php if(isset($content)): echo $content; endif; ?>
-    </main>
-
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-content container">
-            <div class="footer-grid grid grid-4">
-                <div class="footer-section">
-                    <h3>About Us</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Our Story</a></li>
-                        <li><a href="#">Team</a></li>
-                        <li><a href="#">Careers</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Warehouse Management</a></li>
-                        <li><a href="#">Inventory Control</a></li>
-                        <li><a href="#">Stock Tracking</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Resources</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">API</a></li>
-                        <li><a href="#">Support</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Connect</h3>
-                    <ul class="footer-links social-links">
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">GitHub</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 Warehouse & Stock Management System. All rights reserved.</p>
-            </div>
+        <!-- About Us Section -->
+        <div class="footer-section">
+          <h3><a href="footers/about_us.html">About Us</a></h3>
+          <ul class="footer-links">
+            <li><a href="footers/about_us.html#our-story">Our Story</a></li>
+            <li><a href="footers/about_us.html#team">Team</a></li>
+            <li><a href="footers/about_us.html#careers">Careers</a></li>
+          </ul>
         </div>
-    </footer>
+
+        <!-- Services Section -->
+        <div class="footer-section">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="#">Warehouse Management</a></li>
+            <li><a href="#">Inventory Control</a></li>
+            <li><a href="#">Stock Tracking</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources Section -->
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul class="footer-links">
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">API</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+
+        <!-- Connect Section -->
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <ul class="footer-links social-links">
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Warehouse & Stock Management System. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
